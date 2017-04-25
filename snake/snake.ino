@@ -24,8 +24,8 @@ byte state;
 //coords start at 1 and goto 8 as a workaround for non-signed
 byte convertXY(int x, int y);
 
-size_t snakeLength = 3; //current length of the snake
-const size_t totalLength = 32;//max length of snake
+byte snakeLength = 3; //current length of the snake
+const byte totalLength = 32;//max length of snake
 byte snake[totalLength] = {convertXY(1,8),convertXY(2,8),convertXY(3,8)}; //starting on top left
 char direction = 'r'; // r l u d // right left up down
 //padded 1 pixel top and bottom // array listed in rows
@@ -95,19 +95,19 @@ void gameOver(){
 
 //runs the game logic, moving and eating
 void moveSnake(){
-  if(direction == 'l' && convertXY(getX(snake[snakeLength-1]) - 1, getY(snake[snakeLength-1])) == foodPos){
+  if(direction == 'l' && snake[snakeLength-1] - B00010000 == foodPos){
     snakeLength++;
     snake[snakeLength-1] = foodPos;
     foodPos = convertXY(floor(random(8))+1,floor(random(8))+1);
-  }else if(direction == 'r' && convertXY(getX(snake[snakeLength-1]) + 1, getY(snake[snakeLength-1])) == foodPos){
+  }else if(direction == 'r' && snake[snakeLength-1] + B00010000 == foodPos){
     snakeLength++;
     snake[snakeLength-1] = foodPos;
     foodPos = convertXY(floor(random(8))+1,floor(random(8))+1);
-  }else if(direction == 'u' && convertXY(getX(snake[snakeLength-1]), getY(snake[snakeLength-1]) + 1) == foodPos){
+  }else if(direction == 'u' && snake[snakeLength-1] + B0000001 == foodPos){
     snakeLength++;
     snake[snakeLength-1] = foodPos;
     foodPos = convertXY(floor(random(8))+1,floor(random(8))+1);
-  }else if(direction == 'd' && convertXY(getX(snake[snakeLength-1]), getY(snake[snakeLength-1]) - 1) == foodPos){
+  }else if(direction == 'd' && snake[snakeLength-1] - B0000001 == foodPos){
     snakeLength++;
     snake[snakeLength-1] = foodPos;
     foodPos = convertXY(floor(random(8))+1,floor(random(8))+1);
@@ -119,31 +119,42 @@ void moveSnake(){
 
     //we didn't get a food so move as normal
     if(direction=='l'){      // left
-      snake[snakeLength-1] = convertXY(getX(snake[snakeLength-1]) - 1, getY(snake[snakeLength-1]));
+      //snake[snakeLength-1] = convertXY(getX(snake[snakeLength-1]) - 1, getY(snake[snakeLength-1]));
+      snake[snakeLength-1] -= B00010000;
       if(getX(snake[snakeLength-1]) == 0){
         gameOver();
         return;
       }
     }
     else if(direction=='r'){ // right
-      snake[snakeLength-1] = convertXY(getX(snake[snakeLength-1]) + 1, getY(snake[snakeLength-1]));
+      //snake[snakeLength-1] = convertXY(getX(snake[snakeLength-1]) + 1, getY(snake[snakeLength-1]));
+      snake[snakeLength-1] += B00010000;
       if(getX(snake[snakeLength-1]) == 9){
         gameOver();
         return;
       }
     }
     else if(direction=='u'){ // up
-      snake[snakeLength-1] = convertXY(getX(snake[snakeLength-1]), getY(snake[snakeLength-1]) + 1);
+      //snake[snakeLength-1] = convertXY(getX(snake[snakeLength-1]), getY(snake[snakeLength-1]) + 1);
+      snake[snakeLength-1] += B00000001;
       if(getY(snake[snakeLength-1]) == 9){
         gameOver();
         return;
       }
     }
     else{                    // down
-      snake[snakeLength-1] = convertXY(getX(snake[snakeLength-1]), getY(snake[snakeLength-1]) - 1);
+      //snake[snakeLength-1] = convertXY(getX(snake[snakeLength-1]), getY(snake[snakeLength-1]) - 1);
+      snake[snakeLength-1] -= B00000001;
       if(getY(snake[snakeLength-1]) == 0){
         gameOver();
         return;
+      }
+    }
+
+    //checking if we overlapped ourself
+    for(byte i=0;i<snakeLength-1;i++){
+      if(snake[snakeLength-1] == snake[i]){
+        gameOver();
       }
     }
   }
