@@ -34,13 +34,150 @@ chart = ds_list_create();
 
 ds_list_add(chart, b1);
 ds_list_add(chart, b1 + b2);
+ds_list_add(chart, b3 + b4);
+ds_list_add(chart, b1 + b4);
+
+ds_list_add(chart, b1);
+ds_list_add(chart, b2);
+ds_list_add(chart, b3);
+ds_list_add(chart, b4);
+ds_list_add(chart, b3);
+ds_list_add(chart, b2);
+ds_list_add(chart, b1);
+
+ds_list_add(chart, b1);
+ds_list_add(chart, b2);
+ds_list_add(chart, b3);
+ds_list_add(chart, b4);
+ds_list_add(chart, b3);
+ds_list_add(chart, b2);
+ds_list_add(chart, b1);
+
 ds_list_add(chart, b1 + b4);
 ds_list_add(chart, b1 + b4);
+
+ds_list_add(chart, b1 + b4);
+ds_list_add(chart, b2 + b3);
+ds_list_add(chart, b1 + b4);
+ds_list_add(chart, b2 + b3);
+ds_list_add(chart, b1 + b4);
+ds_list_add(chart, b2 + b3);
+
+ds_list_add(chart, b1 + b4);
+ds_list_add(chart, b1 + b4);
+ds_list_add(chart, b1 + b4);
+ds_list_add(chart, b1 + b4);
+
+ds_list_add(chart, b1);
+ds_list_add(chart, b2);
+ds_list_add(chart, b3);
+ds_list_add(chart, b4);
+ds_list_add(chart, b4);
+ds_list_add(chart, b4);
+ds_list_add(chart, b4);
+ds_list_add(chart, b4);
+ds_list_add(chart, b3);
+ds_list_add(chart, b2);
+ds_list_add(chart, b1);
+
+ds_list_add(chart, b1 + b4);
+ds_list_add(chart, b1 + b4);
+
+ds_list_add(chart, b1 + b2);
+ds_list_add(chart, b1 + b2);
+ds_list_add(chart, b3 + b4);
+ds_list_add(chart, b3 + b4);
+ds_list_add(chart, b1 + b2);
+ds_list_add(chart, b1 + b2);
+ds_list_add(chart, b3 + b4);
+ds_list_add(chart, b3 + b4);
+
+ds_list_add(chart, b4);
+ds_list_add(chart, b1);
+ds_list_add(chart, b2);
+ds_list_add(chart, b3);
+ds_list_add(chart, b4);
+ds_list_add(chart, b1);
+ds_list_add(chart, b2);
 ds_list_add(chart, b3);
 
+ds_list_add(chart, b1 + b4);
+ds_list_add(chart, b2 + b3);
+ds_list_add(chart, b1 + b2 + b3 + b4);
+
+ds_list_add(chart, b4);
+ds_list_add(chart, b1);
+ds_list_add(chart, b2);
+ds_list_add(chart, b3);
+ds_list_add(chart, b4);
+ds_list_add(chart, b1);
+ds_list_add(chart, b2);
+ds_list_add(chart, b3);
+
+ds_list_add(chart, b1);
+ds_list_add(chart, b2);
+ds_list_add(chart, b3);
+ds_list_add(chart, b4);
+ds_list_add(chart, b4);
+ds_list_add(chart, b4);
+ds_list_add(chart, b4);
+ds_list_add(chart, b4);
+ds_list_add(chart, b3);
+ds_list_add(chart, b2);
+ds_list_add(chart, b1);
+
+ds_list_add(chart, b1 + b4);
+ds_list_add(chart, b2 + b3);
+ds_list_add(chart, b1 + b4);
+ds_list_add(chart, b1 + b4);
+
+ds_list_add(chart, b4);
+ds_list_add(chart, b3);
+ds_list_add(chart, b2);
+ds_list_add(chart, b1);
+ds_list_add(chart, b2);
+ds_list_add(chart, b3);
+ds_list_add(chart, b4);
+
+ds_list_add(chart, b4);
+ds_list_add(chart, b3);
+ds_list_add(chart, b2);
+ds_list_add(chart, b1);
+ds_list_add(chart, b2);
+ds_list_add(chart, b3);
+ds_list_add(chart, b4);
+
+ds_list_add(chart, b4);
+ds_list_add(chart, b3);
+ds_list_add(chart, b1);
+ds_list_add(chart, b2);
+ds_list_add(chart, b4);
+ds_list_add(chart, b3);
+ds_list_add(chart, b1);
+ds_list_add(chart, b2);
+ds_list_add(chart, b4);
+ds_list_add(chart, b3);
+ds_list_add(chart, b1);
+ds_list_add(chart, b2);
+
+ds_list_add(chart, b1);
+ds_list_add(chart, b2);
+ds_list_add(chart, b3);
+ds_list_add(chart, b4);
+ds_list_add(chart, b3);
+ds_list_add(chart, b2);
+ds_list_add(chart, b1);
+
+ds_list_add(chart, b1 + b4);
+ds_list_add(chart, b1 + b4);
+ds_list_add(chart, b2 + b3);
+ds_list_add(chart, b2 + b3);
+
 timer = 0;
-delay = 20;
+delay = 30;
 delayTimer = 0;
+hp = 10;
+win = false;
 
 </string>
           </argument>
@@ -64,17 +201,83 @@ delayTimer = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>delayTimer++;
-if(delayTimer == delay){
-  timer++;
-  delayTimer = 0;
-  if(timer &lt; ds_list_size(chart)){
-    b=instance_create(0,0,note);
-    b.buttons = chart[|timer];
+            <string>if(hp&gt;0){
+  delayTimer++;
+  if(delayTimer == floor(delay)){
+    timer++;
+    delayTimer = 0;
+    if(timer &lt; ds_list_size(chart)){
+      b=instance_create(0,0,note);
+      b.buttons = chart[|timer];
+      if(delay &gt; 10){
+        delay -= 0.5;
+      }
+    }else if(!win){
+      win = true;
+    }
   }
 }
-
  
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_set_color(c_white);
+
+draw_set_alpha(0.1);
+draw_rectangle(0,0,view_wview/4,view_hview,false); 
+ 
+draw_set_alpha(0.2);
+draw_rectangle(view_wview/4,0,view_wview/2,view_hview,false); 
+
+draw_set_alpha(0.1); 
+draw_rectangle(view_wview/2,0,(view_wview*3)/4,view_hview,false);
+
+draw_set_alpha(0.2);  
+draw_rectangle((view_wview*3)/4,0,view_wview,view_hview,false);  
+
+draw_rectangle(0,view_hview - view_hview/20,view_wview,view_hview - view_hview/20 + 16,false); 
+
+if(hp&gt;0 &amp;&amp; (!win || instance_exists(note))){
+  draw_set_alpha(0.8);
+  draw_set_halign(fa_center);
+  draw_set_font(roboto72);
+  draw_text(view_wview/2,128,hp);
+}else if(win){
+  if(!instance_exists(note)){
+    draw_set_alpha(0.8);
+    draw_set_halign(fa_center);
+    draw_set_font(roboto72);
+    draw_text(view_wview/2,128,"you win!");
+  }
+}else{
+  draw_set_alpha(0.8);
+  draw_set_halign(fa_center);
+  draw_set_font(roboto72);
+  draw_text(view_wview/2,128,"you lose");
+  draw_text(view_wview/2,320,"r-restart");
+}
+
+draw_set_alpha(1);
+
 </string>
           </argument>
         </arguments>

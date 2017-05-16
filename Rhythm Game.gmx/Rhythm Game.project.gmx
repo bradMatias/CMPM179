@@ -5,12 +5,18 @@
   </Configs>
   <NewExtensions/>
   <sounds name="sound"/>
-  <sprites name="sprites"/>
+  <sprites name="sprites">
+    <sprite>sprites\notePartSpr</sprite>
+  </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <fonts name="fonts">
+    <font>fonts\roboto72</font>
+  </fonts>
   <objects name="objects">
     <object>objects\chartPlayer</object>
     <object>objects\note</object>
+    <object>objects\notePart</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\gameRoom</room>
