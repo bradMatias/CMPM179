@@ -114,8 +114,8 @@ if(y &gt; view_hview - view_hview/20 - 148){
 }
 
 if(y &gt; view_hview){
-  instance_destroy();
   recycle = true;
+  instance_destroy();
   with(chartPlayer){
     hp--;
   }
