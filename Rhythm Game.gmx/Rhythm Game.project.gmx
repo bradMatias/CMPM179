@@ -7,6 +7,7 @@
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprite>sprites\notePartSpr</sprite>
+    <sprite>sprites\laserPartSpr</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -17,6 +18,8 @@
     <object>objects\chartPlayer</object>
     <object>objects\note</object>
     <object>objects\notePart</object>
+    <object>objects\laserPart</object>
+    <object>objects\laser</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\gameRoom</room>

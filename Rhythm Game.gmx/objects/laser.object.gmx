@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-2</depth>
+  <depth>0</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -25,43 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>input = 0;
-
+            <string>pink = true;
 recycle = false;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="1" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if(!recycle){
-  for(j=0;j&lt;4;j++){
-    if(buttons &amp; power(2,j)){
-      for(i=0;i&lt;30;i++){
-        b=instance_create(random_range(j * view_wview/4,(j+1) * view_wview/4),view_hview,notePart);
-        //b=instance_create(random_range(0,50),view_hview,notePart);
-        b.speed = 6 + random(12);
-        b.direction = 80 + random(20);
-      }
-    }
-  }
-}
+clear = 0;
+good = 0;
 </string>
           </argument>
         </arguments>
@@ -84,20 +51,40 @@ recycle = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>y += 24;
-
-if(y &gt; view_hview - view_hview/20 - 148){
-  if(chartPlayer.input == buttons){
-    instance_destroy();
+            <string>for(i=0;i&lt;8;i++)
+  yPos[i] += 24;
+  
+if(clear &lt; 8 &amp;&amp; yPos[clear] &gt; view_hview - view_hview/20){
+  if(pink){
+    if(abs(chartPlayer.pinkX - xPos[clear]) &lt; 96){
+      for(i=0;i&lt;30;i++){
+        b=instance_create(xPos[clear],yPos[clear],laserPart);
+        b.speed = 5 + random(8);
+        b.direction = random_range(20,160);
+        b.image_speed = 0;
+      }
+      good++;
+    }
+  }else{
+    if(abs(chartPlayer.blueX - xPos[clear]) &lt; 96){
+      for(i=0;i&lt;30;i++){
+        b=instance_create(xPos[clear],yPos[clear],laserPart);
+        b.speed = 5 + random(8);
+        b.direction = random_range(20,160);
+        b.image_speed = 0;
+        b.image_index = 1;
+      }
+      good++;
+    }
   }
+  clear++;
 }
 
-if(y &gt; view_hview){
-  recycle = true;
-  instance_destroy();
-  with(chartPlayer){
-    hp--;
+if(yPos[7] &gt; view_hview){
+  if(good &lt; 5){
+    chartPlayer.hp--;
   }
+  instance_destroy();
 }
 </string>
           </argument>
@@ -121,23 +108,20 @@ if(y &gt; view_hview){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_color(c_white);
-if(buttons &amp; 1){
-draw_set_alpha(0.8);
-  draw_rectangle(0,y,view_wview/4,y+16,false);  
+            <string>if(pink){
+  draw_set_color(c_fuchsia);
+}else{
+  draw_set_color(c_aqua);
 }
-if(buttons &amp; 2){
+
+draw_set_alpha(0.3);
+
+for(i=0;i&lt;7;i++){
+  draw_line_width(xPos[i],yPos[i],xPos[i+1],yPos[i+1],16);
+  draw_line_width(xPos[i],yPos[i],xPos[i+1],yPos[i+1],8);
+}
+
 draw_set_alpha(1);
-  draw_rectangle(view_wview/4,y,view_wview/2,y+16,false);  
-}
-if(buttons &amp; 4){
-draw_set_alpha(0.8);
-  draw_rectangle(view_wview/2,y,(view_wview*3)/4,y+16,false);  
-}
-if(buttons &amp; 8){
-draw_set_alpha(1);
-  draw_rectangle((view_wview*3)/4,y,view_wview,y+16,false);  
-}
 </string>
           </argument>
         </arguments>

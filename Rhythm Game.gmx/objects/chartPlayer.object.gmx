@@ -25,127 +25,76 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>b1 = 1;
+            <string>input = 0;
+
+p = true;
+
+pinkX = 0;
+blueX = 0;
+
+b1 = 1;
 b2 = 2;
 b3 = 4;
 b4 = 8;
 
 chart = ds_list_create();
+lasers = ds_list_create();
 
 ds_list_add(chart, b1);
 ds_list_add(chart, b1 + b2);
 ds_list_add(chart, b3 + b4);
 ds_list_add(chart, b1 + b4);
 
-ds_list_add(chart, b1);
-ds_list_add(chart, b2);
 ds_list_add(chart, b3);
 ds_list_add(chart, b4);
 ds_list_add(chart, b3);
-ds_list_add(chart, b2);
-ds_list_add(chart, b1);
-
-ds_list_add(chart, b1);
-ds_list_add(chart, b2);
+ds_list_add(chart, b4);
+ds_list_add(chart, b3);
+ds_list_add(chart, b4);
 ds_list_add(chart, b3);
 ds_list_add(chart, b4);
 ds_list_add(chart, b3);
-ds_list_add(chart, b2);
-ds_list_add(chart, b1);
-
-ds_list_add(chart, b1 + b4);
-ds_list_add(chart, b1 + b4);
-
-ds_list_add(chart, b1 + b4);
-ds_list_add(chart, b2 + b3);
-ds_list_add(chart, b1 + b4);
-ds_list_add(chart, b2 + b3);
-ds_list_add(chart, b1 + b4);
-ds_list_add(chart, b2 + b3);
-
-ds_list_add(chart, b1 + b4);
-ds_list_add(chart, b1 + b4);
-ds_list_add(chart, b1 + b4);
-ds_list_add(chart, b1 + b4);
-
-ds_list_add(chart, b1);
-ds_list_add(chart, b2);
-ds_list_add(chart, b3);
 ds_list_add(chart, b4);
-ds_list_add(chart, b4);
-ds_list_add(chart, b4);
-ds_list_add(chart, b4);
-ds_list_add(chart, b4);
-ds_list_add(chart, b3);
-ds_list_add(chart, b2);
-ds_list_add(chart, b1);
-
-ds_list_add(chart, b1 + b4);
-ds_list_add(chart, b1 + b4);
-
-ds_list_add(chart, b1 + b2);
-ds_list_add(chart, b1 + b2);
-ds_list_add(chart, b3 + b4);
-ds_list_add(chart, b3 + b4);
-ds_list_add(chart, b1 + b2);
-ds_list_add(chart, b1 + b2);
-ds_list_add(chart, b3 + b4);
-ds_list_add(chart, b3 + b4);
-
-ds_list_add(chart, b4);
-ds_list_add(chart, b1);
-ds_list_add(chart, b2);
-ds_list_add(chart, b3);
-ds_list_add(chart, b4);
-ds_list_add(chart, b1);
-ds_list_add(chart, b2);
-ds_list_add(chart, b3);
-
-ds_list_add(chart, b1 + b4);
-ds_list_add(chart, b2 + b3);
-ds_list_add(chart, b1 + b2 + b3 + b4);
-
-ds_list_add(chart, b4);
-ds_list_add(chart, b1);
-ds_list_add(chart, b2);
-ds_list_add(chart, b3);
-ds_list_add(chart, b4);
-ds_list_add(chart, b1);
-ds_list_add(chart, b2);
-ds_list_add(chart, b3);
-
-ds_list_add(chart, b1);
-ds_list_add(chart, b2);
-ds_list_add(chart, b3);
-ds_list_add(chart, b4);
-ds_list_add(chart, b4);
-ds_list_add(chart, b4);
-ds_list_add(chart, b4);
-ds_list_add(chart, b4);
-ds_list_add(chart, b3);
-ds_list_add(chart, b2);
-ds_list_add(chart, b1);
-
-ds_list_add(chart, b1 + b4);
-ds_list_add(chart, b2 + b3);
-ds_list_add(chart, b1 + b4);
-ds_list_add(chart, b1 + b4);
-
-ds_list_add(chart, b4);
-ds_list_add(chart, b3);
-ds_list_add(chart, b2);
-ds_list_add(chart, b1);
-ds_list_add(chart, b2);
 ds_list_add(chart, b3);
 ds_list_add(chart, b4);
 
-ds_list_add(chart, b4);
-ds_list_add(chart, b3);
+ds_list_add(chart, 0);
+ds_list_add(chart, 0);
+ds_list_add(chart, 0);
+ds_list_add(chart, 0);
+ds_list_add(chart, 0);
+ds_list_add(chart, 0);
+ds_list_add(chart, 0);
+ds_list_add(chart, 0);
+ds_list_add(chart, 0);
+ds_list_add(chart, 0);
+
+ds_list_add(chart, b1);
+ds_list_add(chart, b1);
+ds_list_add(chart, b2);
+ds_list_add(chart, b2);
+
+ds_list_add(chart, 0);
+ds_list_add(chart, 0);
+
+ds_list_add(chart, b1 + b4);
+ds_list_add(chart, 0);
+ds_list_add(chart, 0);
+ds_list_add(chart, b1 + b4);
+
+ds_list_add(chart, 0);
+ds_list_add(chart, 0);
+
+ds_list_add(chart, b1);
 ds_list_add(chart, b2);
 ds_list_add(chart, b1);
 ds_list_add(chart, b2);
-ds_list_add(chart, b3);
-ds_list_add(chart, b4);
+ds_list_add(chart, b1);
+ds_list_add(chart, b2);
+ds_list_add(chart, b1);
+ds_list_add(chart, b2);
+ds_list_add(chart, b1);
+ds_list_add(chart, b2);
 
 ds_list_add(chart, b4);
 ds_list_add(chart, b3);
@@ -159,21 +108,33 @@ ds_list_add(chart, b4);
 ds_list_add(chart, b3);
 ds_list_add(chart, b1);
 ds_list_add(chart, b2);
-
-ds_list_add(chart, b1);
-ds_list_add(chart, b2);
-ds_list_add(chart, b3);
 ds_list_add(chart, b4);
 ds_list_add(chart, b3);
-ds_list_add(chart, b2);
 ds_list_add(chart, b1);
+ds_list_add(chart, b2);
+ds_list_add(chart, b4);
+ds_list_add(chart, b3);
+ds_list_add(chart, b1);
+ds_list_add(chart, b2);
 
 ds_list_add(chart, b1 + b4);
 ds_list_add(chart, b1 + b4);
-ds_list_add(chart, b2 + b3);
-ds_list_add(chart, b2 + b3);
+ds_list_add(chart, b1 + b4);
+ds_list_add(chart, b1 + b4);
+
+//start X pos + (end X pos &lt;&lt; 10) + (time &lt;&lt; 20)
+ds_list_add(lasers, 0);
+ds_list_add(lasers, 0);
+ds_list_add(lasers, 0);
+ds_list_add(lasers, 0);
+ds_list_add(lasers, 0 + (360 &lt;&lt; 10) + (8 &lt;&lt; 20));
+
+ds_list_add(lasers, 720 + (0 &lt;&lt; 10) + (2 &lt;&lt; 20));
+ds_list_add(lasers, 0 + (720 &lt;&lt; 10) + (2 &lt;&lt; 20));
+ds_list_add(lasers, 720 + (360 &lt;&lt; 10) + (2 &lt;&lt; 20));
 
 timer = 0;
+lTimer = -1;
 delay = 30;
 delayTimer = 0;
 hp = 10;
@@ -201,14 +162,47 @@ win = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(hp&gt;0){
+            <string>input = 0;
+
+pinkX = 720 - (display_mouse_get_x()/display_get_width()) * 720;
+blueX = (display_mouse_get_y()/display_get_height()) * 720;
+
+if(keyboard_check(ord('D'))){
+  input += 1;
+}
+if(keyboard_check(ord('F'))){
+  input += 2;
+}
+if(keyboard_check(ord('J'))){
+  input += 4;
+}
+if(keyboard_check(ord('K'))){
+  input += 8;
+}
+
+if(hp&gt;0){
   delayTimer++;
   if(delayTimer == floor(delay)){
     timer++;
     delayTimer = 0;
     if(timer &lt; ds_list_size(chart)){
-      b=instance_create(0,0,note);
-      b.buttons = chart[|timer];
+      if(chart[|timer] != 0){
+        b=instance_create(0,0,note);
+        b.buttons = chart[|timer];
+      }
+      if(!instance_exists(laser))
+        lTimer++;
+      if(!instance_exists(laser) &amp;&amp; lTimer &lt; ds_list_size(lasers) &amp;&amp; lasers[|lTimer] != 0){
+        b = instance_create(0,0,laser);
+        b.pink = p;
+        p = !p;
+        for(i=0;i&lt;8;i++){
+          b.xPos[i] = ( ((lasers[|lTimer] &gt;&gt; 10) &amp; 1023) - (lasers[|lTimer] &amp; 1023) ) / 7 * i + (lasers[|lTimer] &amp; 1023);
+          b.yPos[i] = -(((lasers[|lTimer] &gt;&gt; 20) * floor(delay) * 24) / 7) * i;
+        }
+      }
+      //delay is how long we wait before spawning another node
+      //so song speeds up
       if(delay &gt; 10){
         delay -= 0.5;
       }
@@ -275,6 +269,13 @@ if(hp&gt;0 &amp;&amp; (!win || instance_exists(note))){
   draw_text(view_wview/2,128,"you lose");
   draw_text(view_wview/2,320,"r-restart");
 }
+
+draw_set_colour(c_fuchsia);
+draw_set_alpha(0.6);
+draw_circle(pinkX,view_hview - view_hview/20,32,false);
+
+draw_set_colour(c_aqua);
+draw_circle(blueX,view_hview - view_hview/20,32,false);
 
 draw_set_alpha(1);
 
