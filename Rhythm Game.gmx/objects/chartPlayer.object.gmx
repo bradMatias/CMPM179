@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>input = 0;
+            <string>window_set_cursor(cr_none);
+
+input = 0;
 
 p = true;
 
@@ -131,7 +133,7 @@ ds_list_add(lasers, 0 + (360 &lt;&lt; 10) + (8 &lt;&lt; 20));
 
 ds_list_add(lasers, 720 + (0 &lt;&lt; 10) + (2 &lt;&lt; 20));
 ds_list_add(lasers, 0 + (720 &lt;&lt; 10) + (2 &lt;&lt; 20));
-ds_list_add(lasers, 720 + (360 &lt;&lt; 10) + (2 &lt;&lt; 20));
+ds_list_add(lasers, 0 + (720 &lt;&lt; 10) + (2 &lt;&lt; 20));
 
 timer = 0;
 lTimer = -1;
